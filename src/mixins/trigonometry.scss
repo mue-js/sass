@@ -9,69 +9,69 @@ $_pi: 3.14159265359;
 $__precision: 10;
 
 @function pow($_base, $_exp) {
-  $_value: $_base;
+    $_value: $_base;
 
-  @if $_exp > 1 {
-    @for $_i from 2 through $_exp {
-      $_value: $_value * $_base;
+    @if $_exp > 1 {
+        @for $_i from 2 through $_exp {
+            $_value: $_value * $_base;
+        }
     }
-  }
 
-  @if $_exp < 1 {
-    @for $_i from 0 through -$_exp {
-      $_value: $_value / $_base;
+    @if $_exp < 1 {
+        @for $_i from 0 through -$_exp {
+            $_value: $_value / $_base;
+        }
     }
-  }
 
-  @return $_value;
+    @return $_value;
 }
 
 @function fact($_num) {
-  $_fact: 1;
+    $_fact: 1;
 
-  @if $_num > 0 {
-    @for $_i from 1 through $_num {
-      $_fact: $_fact * $_i;
+    @if $_num > 0 {
+        @for $_i from 1 through $_num {
+            $_fact: $_fact * $_i;
+        }
     }
-  }
 
-  @return $_fact;
+    @return $_fact;
 }
 
 @function _to_unitless_rad($_angle) {
-  @if unit($_angle) == 'deg' {
-    $_angle: $_angle / 180deg * $_pi;
-  }
+    @if unit($_angle) == 'deg' {
+        $_angle: $_angle / 180deg * $_pi;
+    }
 
-  @if unit($_angle) == 'rad' {
-    $_angle: $_angle / 1rad;
-  }
+    @if unit($_angle) == 'rad' {
+        $_angle: $_angle / 1rad;
+    }
 
-  @return $_angle;
+    @return $_angle;
 }
 
 @function sin($_angle) {
-  $_a: _to_unitless_rad($_angle);
-  $_sin: $_a;
+    $_a: _to_unitless_rad($_angle);
+    $_sin: $_a;
 
-  @for $_n from 1 through $__precision {
-    $_sin: $_sin + (pow(-1, $_n) / fact(2 * $_n + 1)) * pow($_a, (2 * $_n + 1));
-  }
+    @for $_n from 1 through $__precision {
+        $_sin: $_sin + (pow(-1, $_n) / fact(2 * $_n + 1)) * pow($_a, (2 * $_n + 1));
+    }
 
-  @return $_sin;
+    @return $_sin;
 }
 
 @function cos($_angle) {
-  $_a: _to_unitless_rad($_angle);
-  $_cos: 1;
+    $_a: _to_unitless_rad($_angle);
+    $_cos: 1;
 
-  @for $_n from 1 through $__precision {
-    $_cos: $_cos + (pow(-1, $_n) / fact(2 * $_n)) * pow($_a, 2 * $_n);
-  }
+    @for $_n from 1 through $__precision {
+        $_cos: $_cos + (pow(-1, $_n) / fact(2 * $_n)) * pow($_a, 2 * $_n);
+    }
 
-  @return $_cos;
+    @return $_cos;
 }
 
 @function tan($_angle) {
-  @return sin($_angle) / cos($_angle);
+    @return sin($_angle) / cos($_angle);
 }

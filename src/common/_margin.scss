@@ -3,162 +3,157 @@
 /**
  * UTILS
  */
+
 @mixin generate-margin($_i, $_unit) {
-  $_trueUnit: $_unit;
+    $_trueUnit: $_unit;
 
-  @if ($_unit == \%) {
-    $_trueUnit: '%';
-  }
+    @if ($_unit == \%) {
+        $_trueUnit: '%';
+    }
 
-  $_class: '';
+    $_class: '';
 
-  @if ($_unit == px) {
-    $_class: m-#{$_i};
-  }
+    @if ($_unit == px) {
+        $_class: m-#{$_i};
+    } @else {
+        $_class: m-#{$_i}#{$_unit};
+    }
 
-  @else {
-    $_class: m-#{$_i}#{$_unit};
-  }
+    @include withMediaQueries($_class) {
+        margin: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @include withMediaQueries($_class) {
-    margin: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
+    @if ($_unit == px) {
+        $_class: mv-#{$_i};
+    } @else {
+        $_class: mv-#{$_i}#{$_unit};
+    }
 
-  @if ($_unit == px) {
-    $_class: mv-#{$_i};
-  }
+    @include withMediaQueries($_class) {
+        margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
+        margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @else {
-    $_class: mv-#{$_i}#{$_unit};
-  }
+    @if ($_unit == px) {
+        $_class: mt-#{$_i};
+    } @else {
+        $_class: mt-#{$_i}#{$_unit};
+    }
 
-  @include withMediaQueries($_class) {
-    margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
-    margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
+    @include withMediaQueries($_class) {
+        margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @if ($_unit == px) {
-    $_class: mt-#{$_i};
-  }
+    @if ($_unit == px) {
+        $_class: mb-#{$_i};
+    } @else {
+        $_class: mb-#{$_i}#{$_unit};
+    }
 
-  @else {
-    $_class: mt-#{$_i}#{$_unit};
-  }
+    @include withMediaQueries($_class) {
+        margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @include withMediaQueries($_class) {
-    margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
+    @if ($_unit == px) {
+        $_class: mh-#{$_i};
+    } @else {
+        $_class: mh-#{$_i}#{$_unit};
+    }
 
-  @if ($_unit == px) {
-    $_class: mb-#{$_i};
-  }
+    @include withMediaQueries($_class) {
+        margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
+        margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @else {
-    $_class: mb-#{$_i}#{$_unit};
-  }
+    @if ($_unit == px) {
+        $_class: ml-#{$_i};
+    } @else {
+        $_class: ml-#{$_i}#{$_unit};
+    }
 
-  @include withMediaQueries($_class) {
-    margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
+    @include withMediaQueries($_class) {
+        margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 
-  @if ($_unit == px) {
-    $_class: mh-#{$_i};
-  }
+    @if ($_unit == px) {
+        $_class: mr-#{$_i};
+    } @else {
+        $_class: mr-#{$_i}#{$_unit};
+    }
 
-  @else {
-    $_class: mh-#{$_i}#{$_unit};
-  }
-
-  @include withMediaQueries($_class) {
-    margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
-    margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
-
-  @if ($_unit == px) {
-    $_class: ml-#{$_i};
-  }
-
-  @else {
-    $_class: ml-#{$_i}#{$_unit};
-  }
-
-  @include withMediaQueries($_class) {
-    margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
-
-  @if ($_unit == px) {
-    $_class: mr-#{$_i};
-  }
-
-  @else {
-    $_class: mr-#{$_i}#{$_unit};
-  }
-
-  @include withMediaQueries($_class) {
-    margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
-  }
+    @include withMediaQueries($_class) {
+        margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
 }
 
 @include generate-margin(auto, '');
 
 // 0, 2, 4, 6, 8, 10
-@for $_step from 0 through 5 {
-  $_value: 2 * $_step;
 
-  @include generate-margin($_value, px);
+@for $_step from 0 through 5 {
+    $_value: 2 * $_step;
+
+    @include generate-margin($_value, px);
 }
 
 // -2, -4, -6, -8, -10
-@for $_step from 1 through -5 {
-  $_value: 2 * $_step;
 
-  @include generate-margin($_value, px);
+@for $_step from 1 through -5 {
+    $_value: 2 * $_step;
+
+    @include generate-margin($_value, px);
 }
 
 // 15, 20, 25, ..., 40, 45, 50
-@for $_step from 3 through 10 {
-  $_value: $_step * 5;
 
-  @include generate-margin($_value, px);
+@for $_step from 3 through 10 {
+    $_value: $_step * 5;
+
+    @include generate-margin($_value, px);
 }
 
 // 60, 70, 80, 90, 100
-@for $_step from 6 through 10 {
-  $_value: $_step * 10;
 
-  @include generate-margin($_value, px);
+@for $_step from 6 through 10 {
+    $_value: $_step * 10;
+
+    @include generate-margin($_value, px);
 }
 
 // -15, -20, -25, ..., -40, -45, -50
-@for $_step from -3 through -10 {
-  $_value: $_step * 5;
 
-  @include generate-margin($_value, px);
+@for $_step from -3 through -10 {
+    $_value: $_step * 5;
+
+    @include generate-margin($_value, px);
 }
 
 //  -60, -70, -80, -90, -100
-@for $_step from -6 through -10 {
-  $_value: $_step * 10;
 
-  @include generate-margin($_value, px);
+@for $_step from -6 through -10 {
+    $_value: $_step * 10;
+
+    @include generate-margin($_value, px);
 }
 
 // 2, 4, 6, 8, 10
 // % vw vh
-@for $_step from 1 through 5 {
-  $_value: $_step * 2;
 
-  @each $_unit in \%, vw, vh {
-    @include generate-margin($_value, $_unit);
-  }
+@for $_step from 1 through 5 {
+    $_value: $_step * 2;
+
+    @each $_unit in \%, vw, vh {
+        @include generate-margin($_value, $_unit);
+    }
 }
 
 // 15, 20, 25, 30, ... 85, 90, 95, 100
 // % vw vh
-@for $_step from 3 through 20 {
-  $_value: $_step * 5;
 
-  @each $_unit in \%, vw, vh {
-    @include generate-margin($_value, $_unit);
-  }
+@for $_step from 3 through 20 {
+    $_value: $_step * 5;
+
+    @each $_unit in \%, vw, vh {
+        @include generate-margin($_value, $_unit);
+    }
 }

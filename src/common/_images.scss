@@ -1,18 +1,18 @@
 img {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 
-  &.fill-parent {
-    object-fit: cover;
-    object-position: center;
-    min-width: 100%;
-    min-height: 100%;
-    transition: all 1.2s;
-  }
+    &.fill-parent {
+        object-fit: cover;
+        object-position: center;
+        min-width: 100%;
+        min-height: 100%;
+        transition: all 1.2s;
+    }
 }
 
 @each $_fit in contain, cover, fill, scale-down {
-  .fit-#{$_fit} {
-    object-fit: $_fit !important;
-  }
+    .fit-#{$_fit} {
+        object-fit: $_fit !important;
+    }
 }

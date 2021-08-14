@@ -1,53 +1,53 @@
 @import '../mixins/mediaQueries';
 
 @each $_limit in '', min-, max- {
-  @each $_direction in width, height {
-    .#{$_limit}#{$_direction}-unset {
-      #{$_limit}#{$_direction}: unset !important;
+    @each $_direction in width, height {
+        .#{$_limit}#{$_direction}-unset {
+            #{$_limit}#{$_direction}: unset !important;
+        }
+
+        @for $_i from 0 through 10 {
+            .#{$_limit}#{$_direction}-#{$_i} {
+                #{$_limit}#{$_direction}: #{$_i}px !important;
+            }
+        }
+
+        @for $_step from 3 through 12 {
+            $_i: $_step * 4;
+
+            .#{$_limit}#{$_direction}-#{$_i} {
+                #{$_limit}#{$_direction}: #{$_i}px !important;
+            }
+        }
+
+        @for $_step from 5 through 100 {
+            $_i: $_step * 10;
+
+            .#{$_limit}#{$_direction}-#{$_i} {
+                #{$_limit}#{$_direction}: #{$_i}px !important;
+            }
+        }
+
+        @for $_step from 1 through 20 {
+            $_i: $_step * 5;
+
+            $_class: #{$_limit}#{$_direction}-#{$_i}\%;
+
+            @include withMediaQueries($_class) {
+                #{$_limit}#{$_direction}: unquote('#{$_i}%') !important;
+            }
+
+            $_class: #{$_limit}#{$_direction}-#{$_i}vw;
+
+            @include withMediaQueries($_class) {
+                #{$_limit}#{$_direction}: #{$_i}vw !important;
+            }
+
+            $_class: #{$_limit}#{$_direction}-#{$_i}vh;
+
+            @include withMediaQueries($_class) {
+                #{$_limit}#{$_direction}: #{$_i}vh !important;
+            }
+        }
     }
-
-    @for $_i from 0 through 10 {
-      .#{$_limit}#{$_direction}-#{$_i} {
-        #{$_limit}#{$_direction}: #{$_i}px !important;
-      }
-    }
-
-    @for $_step from 3 through 12 {
-      $_i: $_step * 4;
-
-      .#{$_limit}#{$_direction}-#{$_i} {
-        #{$_limit}#{$_direction}: #{$_i}px !important;
-      }
-    }
-
-    @for $_step from 5 through 100 {
-      $_i: $_step * 10;
-
-      .#{$_limit}#{$_direction}-#{$_i} {
-        #{$_limit}#{$_direction}: #{$_i}px !important;
-      }
-    }
-
-    @for $_step from 1 through 20 {
-      $_i: $_step * 5;
-
-      $_class: #{$_limit}#{$_direction}-#{$_i}\%;
-
-      @include withMediaQueries($_class) {
-        #{$_limit}#{$_direction}: unquote('#{$_i}%') !important;
-      }
-
-      $_class: #{$_limit}#{$_direction}-#{$_i}vw;
-
-      @include withMediaQueries($_class) {
-        #{$_limit}#{$_direction}: #{$_i}vw !important;
-      }
-
-      $_class: #{$_limit}#{$_direction}-#{$_i}vh;
-
-      @include withMediaQueries($_class) {
-        #{$_limit}#{$_direction}: #{$_i}vh !important;
-      }
-    }
-  }
 }
