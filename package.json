@@ -1,6 +1,6 @@
 {
     "name": "@mue-js/sass",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "A not professional library of SASS classes to make styling easier.",
     "main": "src/base/index.scss",
     "exports": {
