@@ -1,0 +1,25 @@
+@import '../mixins/mediaQueries';
+
+@each $_type in -y, -x, '' {
+  @each $_value in scroll, visible, hidden, auto {
+    $_class: overflow#{$_type}-#{$_value};
+
+    @include withMediaQueries($_class) {
+      overflow#{$_type}: $_value !important;
+    }
+  }
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis !important;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.break-spaces {
+  white-space: break-spaces;
+}

@@ -1,0 +1,45 @@
+$_mobile-min: 320px;
+$_mobile-max: 480px;
+
+$_tablet-min: 481px;
+$_tablet-max: 768px;
+
+$_md-screen-min: 769px;
+$_md-screen-max: 1024px;
+
+$_lg-screen-min: 1025px;
+$_lg-screen-max: 1200px;
+
+$_xl-screen-min: 1201px;
+$_xl-screen-max: 1800px;
+
+$_xxl-screen-min: 1801px;
+
+$_sizes: (
+  xs: $_mobile-min,
+  sm: $_tablet-min,
+  md: $_md-screen-min,
+  lg: $_lg-screen-min,
+  xl: $_xl-screen-min,
+  xxl: $_xxl-screen-min,
+);
+
+@mixin withMediaQueries($_class) {
+  @if $_class {
+    .#{$_class} {
+      @content;
+    }
+
+    @each $_size, $_bounds in $_sizes {
+      @if $_size {
+        $_width: map-get($_sizes, $_size);
+
+        @media (min-width: $_width) {
+          .#{$_size}\:#{$_class} {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}

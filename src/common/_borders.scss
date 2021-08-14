@@ -1,0 +1,147 @@
+// 0, 1, ... 30
+@for $_i from 0 through 10 {
+  .b-#{$_i} {
+    border-image-width: #{$_i}px !important;
+    border-width: #{$_i}px !important;
+    border-style: solid;
+  }
+  .bt-#{$_i},
+  .bv-#{$_i} {
+    border-top-width: #{$_i}px !important;
+    border-top-style: solid;
+  }
+  .bb-#{$_i},
+  .bv-#{$_i} {
+    border-bottom-width: #{$_i}px !important;
+    border-bottom-style: solid;
+  }
+  .bl-#{$_i},
+  .bh-#{$_i} {
+    border-left-width: #{$_i}px !important;
+    border-left-style: solid;
+  }
+  .br-#{$_i},
+  .bh-#{$_i} {
+    border-right-width: #{$_i}px !important;
+    border-right-style: solid;
+  }
+
+  .b-rad-#{$_i} {
+    border-radius: #{$_i}px !important;
+  }
+  .btl-rad-#{$_i} {
+    border-top-left-radius: #{$_i}px !important;
+  }
+  .btr-rad-#{$_i} {
+    border-top-right-radius: #{$_i}px !important;
+  }
+  .bbl-rad-#{$_i} {
+    border-bottom-left-radius: #{$_i}px !important;
+  }
+  .bbr-rad-#{$_i} {
+    border-bottom-right-radius: #{$_i}px !important;
+  }
+
+  $_step: $_i * 5;
+  .b-rad-#{$_step}\% {
+    border-radius: unquote('#{$_step}%') !important;
+  }
+}
+
+// REMOVE
+.b-transparent {
+  border-color: transparent !important;
+}
+
+// PRIMARY
+.b-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.b-light-primary {
+  border-color: var(--light-primary-color) !important;
+}
+
+.b-dark-primary {
+  border-color: var(--dark-primary-color) !important;
+}
+
+// SECONDARY
+.b-secondary {
+  border-color: var(--secondary-color) !important;
+}
+
+.b-light-secondary {
+  border-color: var(--light-secondary-color) !important;
+}
+
+.b-dark-secondary {
+  border-color: var(--dark-secondary-color) !important;
+}
+
+// GREYS
+.b-black {
+  border-color: var(--black-color) !important;
+}
+
+.b-dark {
+  border-color: var(--dark-color) !important;
+}
+
+.b-grey {
+  border-color: var(--grey-color) !important;
+}
+
+.b-light {
+  border-color: var(--light-color) !important;
+}
+
+.b-pale {
+  border-color: var(--pale-color) !important;
+}
+
+// OTHERS
+.b-info {
+  border-color: var(--info-color) !important;
+}
+
+.b-success {
+  border-color: var(--success-color) !important;
+}
+
+.b-warning {
+  border-color: var(--warning-color) !important;
+}
+
+.b-error {
+  border-color: var(--error-color) !important;
+}
+
+@each $_style in dashed, solid {
+  .b-#{$_style} {
+    &[class^='b-'],
+    &[class*=' b-'] {
+      border-style: $_style !important;
+    }
+
+    &[class^='bl-'],
+    &[class*=' bl-'] {
+      border-left-style: $_style !important;
+    }
+
+    &[class^='br-'],
+    &[class*=' br-'] {
+      border-right-style: $_style !important;
+    }
+
+    &[class^='bt-'],
+    &[class*=' bt-'] {
+      border-right-style: $_style !important;
+    }
+
+    &[class^='bb-'],
+    &[class*=' bb-'] {
+      border-bottom-style: $_style !important;
+    }
+  }
+}

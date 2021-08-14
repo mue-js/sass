@@ -1,0 +1,114 @@
+@import '../mixins/mediaQueries';
+
+$_justifies: (
+  left: flex-start,
+  center: center,
+  right: flex-end,
+  space-around: space-around,
+  space-between: space-between,
+  space-evenly: space-evenly,
+);
+
+$_alignments: (
+  top: flex-start,
+  center: center,
+  baseline: baseline,
+  bottom: flex-end,
+);
+
+$_types: (
+  '': content,
+  -items: items,
+  -self: self,
+);
+
+@each $_class, $_type in $_types {
+  @each $_class2, $_value in $_justifies {
+    $_fullClass: justify#{$_class}-#{$_class2};
+
+    @include withMediaQueries($_fullClass) {
+      justify-#{$_type}: $_value !important;
+    }
+  }
+
+  @each $_class2, $_value in $_alignments {
+    $_fullClass: align#{$_class}-#{$_class2};
+
+    @include withMediaQueries($_fullClass) {
+      align-#{$_type}: $_value !important;
+    }
+  }
+}
+
+.place-center {
+  align-self: center !important;
+  justify-self: center !important;
+}
+
+@each $_value in static, fixed, relative, absolute, sticky {
+  @include withMediaQueries($_value) {
+    position: $_value !important;
+  }
+}
+
+@each $_value in middle, super, sub, baseline, bottom, top, text-bottom,
+  text-top, initial, unset, inherit {
+  @include withMediaQueries(v-align-#{$_value}) {
+    vertical-align: $_value !important;
+  }
+}
+
+@each $_side in left, center, right, justify {
+  .text-#{$_side} {
+    text-align: $_side !important;
+  }
+}
+
+@each $_side in left, top, bottom, right {
+  $_class: #{$_side}-unset;
+
+  @include withMediaQueries($_class) {
+    #{$_side}: unset !important;
+  }
+}
+
+@for $_step from -10 through 50 {
+  $_i: $_step * 5;
+
+  @include withMediaQueries(left-#{$_i}) {
+    left: #{$_i}px !important;
+  }
+
+  @include withMediaQueries(right-#{$_i}) {
+    right: #{$_i}px !important;
+  }
+
+  @include withMediaQueries(top-#{$_i}) {
+    top: #{$_i}px !important;
+  }
+
+  @include withMediaQueries(bottom-#{$_i}) {
+    bottom: #{$_i}px !important;
+  }
+}
+
+@for $_step from -10 through 20 {
+  $_i: $_step * 5;
+
+  .left-#{$_i}\% {
+    left: unquote('#{$_i}%') !important;
+  }
+  .right-#{$_i}\% {
+    right: unquote('#{$_i}%') !important;
+  }
+  .top-#{$_i}\% {
+    top: unquote('#{$_i}%') !important;
+  }
+  .bottom-#{$_i}\% {
+    bottom: unquote('#{$_i}%') !important;
+  }
+
+  .z-index-#{$_i} {
+    z-index: $_i;
+  }
+}

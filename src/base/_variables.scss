@@ -1,0 +1,56 @@
+:root {
+  --primary-color: hsl(0, 88%, 58%);
+  --light-primary-color: hsl(0, 85%, 63%);
+  --dark-primary-color: hsl(0, 68%, 48%);
+  --secondary-color: hsl(45, 96%, 48%);
+  --light-secondary-color: hsl(45, 93%, 53%);
+  --dark-secondary-color: hsl(45, 76%, 43%);
+
+  // Inputs Color
+  --info-color: hsl(208, 42%, 46%);
+  --success-color: hsl(161, 44%, 47%);
+  --warning-color: hsl(36, 85%, 48%);
+  --error-color: hsl(349, 70%, 51%);
+  --link-color: var(--info-color);
+  --light: rgb(210, 210, 210);
+  --black-color: rgb(51, 51, 51);
+  --dark-color: rgb(68, 68, 68);
+  --grey-color: rgb(120, 120, 120);
+  --light-color: var(--light);
+  --pale-color: rgb(242, 242, 242);
+  --bg-color: rgb(252, 252, 252);
+
+  // opacity 0.1
+  --grey-10: rgba(120, 120, 120, 0.1);
+  --light-10: rgba(200, 200, 200, 0.1);
+  //opacity 0.2
+  --grey-20: rgba(120, 120, 120, 0.2);
+  --color-over-primary: var(--pale-color);
+  --color-over-secondary: var(--pale-color);
+  --color-over-bg: var(--black-color);
+  --disabled-opacity: 0.5;
+}
+
+.dark-mode {
+  --primary-color: hsl(0, 55%, 62%);
+  --light-primary-color: hsl(0, 55%, 70%);
+  --dark-primary-color: hsl(0, 55%, 54%);
+  --secondary-color: hsl(45, 74%, 39%);
+  --light-secondary-color: hsl(45, 72%, 47%);
+  --dark-secondary-color: hsl(45, 68%, 36%);
+  --dark-mode-light: rgb(160, 160, 160);
+  --dark-mode-pale: rgb(210, 210, 210);
+  --light-color: var(--dark-mode-light);
+  --pale-color: var(--dark-mode-pale);
+  --color-over-primary: var(--pale-color);
+  --color-over-secondary: var(--pale-color);
+
+  // Inputs Color
+  --info-color: hsl(209, 35%, 47%);
+  --success-color: hsl(161, 38%, 41%);
+  --warning-color: hsl(36, 47%, 43%);
+  --error-color: hsl(0, 55%, 62%);
+  --dark-mode-bg: rgb(82, 88, 89);
+  --bg-color: var(--dark-mode-bg);
+  --color-over-bg: var(--pale-color);
+}

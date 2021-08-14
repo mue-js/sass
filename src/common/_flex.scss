@@ -1,0 +1,35 @@
+@import '../mixins/mediaQueries';
+
+@for $_i from 0 through 15 {
+  @include withMediaQueries(flex-#{$_i}) {
+    flex: #{$_i} !important;
+  }
+}
+
+.flex {
+  align-content: center;
+}
+
+.flex-initial {
+  flex: initial !important;
+}
+
+@include withMediaQueries(flex-column) {
+  flex-direction: column !important;
+}
+
+@include withMediaQueries(flex-column-reverse) {
+  flex-direction: column-reverse !important;
+}
+
+.flex-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+@include withMediaQueries(flex-wrap) {
+  flex-wrap: wrap !important;
+}

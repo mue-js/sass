@@ -1,0 +1,252 @@
+@import '../mixins/mediaQueries';
+
+/**
+ * UTILS
+ */
+@mixin generate-margin-padding($_i, $_unit, $_padding-too: false) {
+  $_trueUnit: $_unit;
+
+  @if ($_unit == \%) {
+    $_trueUnit: '%';
+  }
+
+  $_class: '';
+
+  @if ($_unit == px) {
+    $_class: m-#{$_i};
+  }
+
+  @else {
+    $_class: m-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: mv-#{$_i};
+  }
+
+  @else {
+    $_class: mv-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
+    margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: mt-#{$_i};
+  }
+
+  @else {
+    $_class: mt-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-top: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: mb-#{$_i};
+  }
+
+  @else {
+    $_class: mb-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: mh-#{$_i};
+  }
+
+  @else {
+    $_class: mh-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
+    margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: ml-#{$_i};
+  }
+
+  @else {
+    $_class: ml-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-left: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_unit == px) {
+    $_class: mr-#{$_i};
+  }
+
+  @else {
+    $_class: mr-#{$_i}#{$_unit};
+  }
+
+  @include withMediaQueries($_class) {
+    margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
+  }
+
+  @if ($_padding-too) {
+    @if ($_unit == px) {
+      $_class: p-#{$_i};
+    }
+
+    @else {
+      $_class: p-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: pv-#{$_i};
+    }
+
+    @else {
+      $_class: pv-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-top: unquote('#{$_i}#{$_trueUnit}') !important;
+      padding-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: pt-#{$_i};
+    }
+
+    @else {
+      $_class: pt-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-top: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: pb-#{$_i};
+    }
+
+    @else {
+      $_class: pb-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: ph-#{$_i};
+    }
+
+    @else {
+      $_class: ph-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-left: unquote('#{$_i}#{$_trueUnit}') !important;
+      padding-right: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: pl-#{$_i};
+    }
+
+    @else {
+      $_class: pl-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-left: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+
+    @if ($_unit == px) {
+      $_class: pr-#{$_i};
+    }
+
+    @else {
+      $_class: pr-#{$_i}#{$_unit};
+    }
+
+    @include withMediaQueries($_class) {
+      padding-right: unquote('#{$_i}#{$_trueUnit}') !important;
+    }
+  }
+}
+
+@include generate-margin-padding(auto, '', true);
+
+// 0, 2, 4, 6, 8, 10
+@for $_step from 0 through 5 {
+  $_value: 2 * $_step;
+
+  @include generate-margin-padding($_value, px, true);
+}
+
+// -2, -4, -6, -8, -10
+@for $_step from 1 through -5 {
+  $_value: 2 * $_step;
+
+  @include generate-margin-padding($_value, px, true);
+}
+
+// 15, 20, 25, ..., 40, 45, 50
+@for $_step from 3 through 10 {
+  $_value: $_step * 5;
+
+  @include generate-margin-padding($_value, px, true);
+}
+
+// 60, 70, 80, 90, 100
+@for $_step from 6 through 10 {
+  $_value: $_step * 10;
+
+  @include generate-margin-padding($_value, px, true);
+}
+
+// -15, -20, -25, ..., -40, -45, -50
+@for $_step from -3 through -10 {
+  $_value: $_step * 5;
+
+  @include generate-margin-padding($_value, px, true);
+}
+
+//  -60, -70, -80, -90, -100
+@for $_step from -6 through -10 {
+  $_value: $_step * 10;
+
+  @include generate-margin-padding($_value, px);
+}
+
+// 2, 4, 6, 8, 10
+// % vw vh
+@for $_step from 1 through 5 {
+  $_value: $_step * 2;
+
+  @each $_unit in \%, vw, vh {
+    @include generate-margin-padding($_value, $_unit, true);
+  }
+}
+
+// 15, 20, 25, 30, ... 85, 90, 95, 100
+// % vw vh
+@for $_step from 3 through 20 {
+  $_value: $_step * 5;
+
+  @each $_unit in \%, vw, vh {
+    @include generate-margin-padding($_value, $_unit, true);
+  }
+}

@@ -1,0 +1,5 @@
+@each $_value in pointer, not-allowed {
+  .#{$_value} {
+    cursor: $_value !important;
+  }
+}
