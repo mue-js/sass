@@ -2,7 +2,8 @@
     "name": "@muejs/sass",
     "version": "1.0.0",
     "description": "A not professional library of SASS classes to make styling easier.",
-    "main": "src/base/index.scss",
+    "main": "src/index.scss",
+    "module": "src/base/index.scss",
     "repository": {
         "type": "git",
         "url": "https://github.com/Cobelt/muejs.git"
@@ -10,6 +11,10 @@
     "publishConfig": {
         "registry": "https://registry.yarnpkg.com"
     },
+    "keywords": [
+        "muejs",
+        "sass"
+    ],
     "devDependencies": {
         "@babel/cli": "^7.14.8",
         "@babel/core": "^7.15.0",
