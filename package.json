@@ -30,6 +30,7 @@
         "sass-loader": "^11.0.1",
         "style-loader": "^2.0.0",
         "stylelint": "^13.13.1",
+        "stylelint-scss": "^3.20.1",
         "stylelint-config-standard": "^22.0.0",
         "webpack": "^5.30.0",
         "webpack-cli": "^4.6.0",
@@ -44,8 +45,5 @@
         "watch": "webpack --watch --config webpack.babel.js",
         "transpile": "babel src -d dist --copy-files",
         "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' "
-    },
-    "dependencies": {
-        "stylelint-scss": "^3.20.1"
     }
 }
