@@ -3,7 +3,7 @@
 /**
  * UTILS
  */
-@mixin generate-margin-padding($_i, $_unit, $_padding-too: false) {
+@mixin generate-margin($_i, $_unit) {
   $_trueUnit: $_unit;
 
   @if ($_unit == \%) {
@@ -97,138 +97,50 @@
   @include withMediaQueries($_class) {
     margin-right: unquote('#{$_i}#{$_trueUnit}') !important;
   }
-
-  @if ($_padding-too) {
-    @if ($_unit == px) {
-      $_class: p-#{$_i};
-    }
-
-    @else {
-      $_class: p-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: pv-#{$_i};
-    }
-
-    @else {
-      $_class: pv-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-top: unquote('#{$_i}#{$_trueUnit}') !important;
-      padding-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: pt-#{$_i};
-    }
-
-    @else {
-      $_class: pt-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-top: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: pb-#{$_i};
-    }
-
-    @else {
-      $_class: pb-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-bottom: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: ph-#{$_i};
-    }
-
-    @else {
-      $_class: ph-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-left: unquote('#{$_i}#{$_trueUnit}') !important;
-      padding-right: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: pl-#{$_i};
-    }
-
-    @else {
-      $_class: pl-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-left: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-
-    @if ($_unit == px) {
-      $_class: pr-#{$_i};
-    }
-
-    @else {
-      $_class: pr-#{$_i}#{$_unit};
-    }
-
-    @include withMediaQueries($_class) {
-      padding-right: unquote('#{$_i}#{$_trueUnit}') !important;
-    }
-  }
 }
 
-@include generate-margin-padding(auto, '', true);
+@include generate-margin(auto, '');
 
 // 0, 2, 4, 6, 8, 10
 @for $_step from 0 through 5 {
   $_value: 2 * $_step;
 
-  @include generate-margin-padding($_value, px, true);
+  @include generate-margin($_value, px);
 }
 
 // -2, -4, -6, -8, -10
 @for $_step from 1 through -5 {
   $_value: 2 * $_step;
 
-  @include generate-margin-padding($_value, px, true);
+  @include generate-margin($_value, px);
 }
 
 // 15, 20, 25, ..., 40, 45, 50
 @for $_step from 3 through 10 {
   $_value: $_step * 5;
 
-  @include generate-margin-padding($_value, px, true);
+  @include generate-margin($_value, px);
 }
 
 // 60, 70, 80, 90, 100
 @for $_step from 6 through 10 {
   $_value: $_step * 10;
 
-  @include generate-margin-padding($_value, px, true);
+  @include generate-margin($_value, px);
 }
 
 // -15, -20, -25, ..., -40, -45, -50
 @for $_step from -3 through -10 {
   $_value: $_step * 5;
 
-  @include generate-margin-padding($_value, px, true);
+  @include generate-margin($_value, px);
 }
 
 //  -60, -70, -80, -90, -100
 @for $_step from -6 through -10 {
   $_value: $_step * 10;
 
-  @include generate-margin-padding($_value, px);
+  @include generate-margin($_value, px);
 }
 
 // 2, 4, 6, 8, 10
@@ -237,7 +149,7 @@
   $_value: $_step * 2;
 
   @each $_unit in \%, vw, vh {
-    @include generate-margin-padding($_value, $_unit, true);
+    @include generate-margin($_value, $_unit);
   }
 }
 
@@ -247,6 +159,6 @@
   $_value: $_step * 5;
 
   @each $_unit in \%, vw, vh {
-    @include generate-margin-padding($_value, $_unit, true);
+    @include generate-margin($_value, $_unit);
   }
 }

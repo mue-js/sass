@@ -99,45 +99,31 @@
   }
 }
 
-@include generate-padding(auto, '', true);
+@include generate-padding(auto, '');
 
 // 0, 2, 4, 6, 8, 10
 @for $_step from 0 through 5 {
   $_value: 2 * $_step;
 
-  @include generate-padding($_value, px, true);
+  @include generate-padding($_value, px);
 }
 
 // -2, -4, -6, -8, -10
 @for $_step from 1 through -5 {
   $_value: 2 * $_step;
 
-  @include generate-padding($_value, px, true);
+  @include generate-padding($_value, px);
 }
 
 // 15, 20, 25, ..., 40, 45, 50
 @for $_step from 3 through 10 {
   $_value: $_step * 5;
 
-  @include generate-padding($_value, px, true);
+  @include generate-padding($_value, px);
 }
 
 // 60, 70, 80, 90, 100
 @for $_step from 6 through 10 {
-  $_value: $_step * 10;
-
-  @include generate-padding($_value, px, true);
-}
-
-// -15, -20, -25, ..., -40, -45, -50
-@for $_step from -3 through -10 {
-  $_value: $_step * 5;
-
-  @include generate-padding($_value, px, true);
-}
-
-//  -60, -70, -80, -90, -100
-@for $_step from -6 through -10 {
   $_value: $_step * 10;
 
   @include generate-padding($_value, px);
@@ -149,7 +135,7 @@
   $_value: $_step * 2;
 
   @each $_unit in \%, vw, vh {
-    @include generate-padding($_value, $_unit, true);
+    @include generate-padding($_value, $_unit);
   }
 }
 
@@ -159,6 +145,6 @@
   $_value: $_step * 5;
 
   @each $_unit in \%, vw, vh {
-    @include generate-padding($_value, $_unit, true);
+    @include generate-padding($_value, $_unit);
   }
 }

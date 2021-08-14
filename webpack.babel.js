@@ -10,7 +10,7 @@ module.exports = {
     mode: 'production',
     entry: {
         // base of app
-        '': './src/base/index.scss',
+        index: './src/base/index.scss',
         // css styles
         animations: './src/common/_animations.scss',
         backgrounds: './src/common/_backgrounds.scss',
@@ -20,12 +20,13 @@ module.exports = {
         flex: './src/common/_flex.scss',
         images: './src/common/_images.scss',
         lists: './src/common/_lists.scss',
+        margin: './src/common/_margin.scss',
         opacity: './src/common/_opacity.scss',
         overflows: './src/common/_overflows.scss',
+        padding: './src/common/_padding.scss',
         placement: './src/common/_placement.scss',
         scrollbar: './src/common/_scrollbar.scss',
         sizing: './src/common/_sizing.scss',
-        spacing: './src/common/_spacing.scss',
     },
 
     output: {
