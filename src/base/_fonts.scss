@@ -1,25 +1,28 @@
-// @mixin rubik {
-//   font-family: Rubik, sans-serif !important;
-// }
+// @import url('//fonts.googleapis.com/css?family=Karla');
+// @import url('//fonts.googleapis.com/css?family=Rubik');
 
-// @mixin karla {
-//   font-family: Karla, sans-serif !important;
-// }
+@mixin rubik {
+    --font-family: rubik !important;
+}
+
+@mixin karla {
+    --font-family: karla !important;
+}
 
 // @mixin ubuntu {
-//   font-family: Ubuntu, sans-serif !important;
+//   font-family: Ubuntu, sans-serif;
 // }
 
 // @mixin poppins {
-//   font-family: Poppins, sans-serif !important;
+//   font-family: Poppins, sans-serif;
 // }
 
 // @mixin oswald {
-//   font-family: Oswald, sans-serif !important;
+//   font-family: Oswald, sans-serif;
 // }
 
 // @mixin roboto {
-//   font-family: Roboto, sans-serif !important;
+//   font-family: Roboto, sans-serif;
 // }
 
 @mixin thin {
@@ -59,27 +62,27 @@
 }
 
 // .rubik {
-//   @include rubik;
+//     @include rubik;
 // }
 
 // .karla {
-//   @include karla;
+//     @include karla;
 // }
 
 // .ubuntu {
-//   @include ubuntu;
+//     @include ubuntu;
 // }
 
 // .poppins {
-//   @include poppins;
+//     @include poppins;
 // }
 
 // .oswald {
-//   @include oswald;
+//     @include oswald;
 // }
 
 // .roboto {
-//   @include roboto;
+//     @include roboto;
 // }
 
 .thin {
@@ -121,7 +124,7 @@
 html,
 button,
 textarea {
-    @include karla;
+    font-family: var(--font-family, var(--text-font, var(--default-text-font, karla))) sans-serif;
 }
 
 @for $_i from 0 through 30 {
@@ -169,16 +172,14 @@ h6 {
 }
 
 @mixin h1 {
-    @include rubik;
-
+    font-family: var(--font-family, var(--title-font, var(--default-title-font, rubik))) sans-serif;
     font-size: 40px;
     letter-spacing: 0;
     line-height: 66px;
 }
 
 @mixin h2 {
-    @include rubik;
-
+    font-family: var(--font-family, var(--title-font, var(--default-title-font, rubik))) sans-serif;
     font-size: 28px;
     font-weight: bold;
     letter-spacing: 0;
@@ -186,24 +187,21 @@ h6 {
 }
 
 @mixin h3 {
-    @include rubik;
-
+    font-family: var(--font-family, var(--title-font, var(--default-title-font, rubik))) sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 24px;
 }
 
 @mixin body-16 {
-    @include karla;
-
+    font-family: var(--font-family, var(--text-font, var(--default-text-font, karla))) sans-serif;
     font-size: 16px;
     letter-spacing: 0;
     line-height: 24px;
 }
 
 @mixin body-14 {
-    @include karla;
-
+    font-family: var(--font-family, var(--text-font, var(--default-text-font, karla))) sans-serif;
     font-size: 14px;
     letter-spacing: 0;
     line-height: 20px;
@@ -218,8 +216,7 @@ h6 {
 }
 
 @mixin caption {
-    @include karla;
-
+    font-family: var(--font-family, var(--text-font, var(--default-text-font, karla))) sans-serif;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0;
