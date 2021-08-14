@@ -16,30 +16,30 @@ $_xl-screen-max: 1800px;
 $_xxl-screen-min: 1801px;
 
 $_sizes: (
-  xs: $_mobile-min,
-  sm: $_tablet-min,
-  md: $_md-screen-min,
-  lg: $_lg-screen-min,
-  xl: $_xl-screen-min,
-  xxl: $_xxl-screen-min,
+    xs: $_mobile-min,
+    sm: $_tablet-min,
+    md: $_md-screen-min,
+    lg: $_lg-screen-min,
+    xl: $_xl-screen-min,
+    xxl: $_xxl-screen-min,
 );
 
 @mixin withMediaQueries($_class) {
-  @if $_class {
-    .#{$_class} {
-      @content;
-    }
-
-    @each $_size, $_bounds in $_sizes {
-      @if $_size {
-        $_width: map-get($_sizes, $_size);
-
-        @media (min-width: $_width) {
-          .#{$_size}\:#{$_class} {
+    @if $_class {
+        .#{$_class} {
             @content;
-          }
         }
-      }
+
+        @each $_size, $_bounds in $_sizes {
+            @if $_size {
+                $_width: map-get($_sizes, $_size);
+
+                @media (min-width: $_width) {
+                    .#{$_size}\:#{$_class} {
+                        @content;
+                    }
+                }
+            }
+        }
     }
-  }
 }

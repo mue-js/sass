@@ -1,5 +1,5 @@
 @each $_value in disc, circle, decimal {
-  .list-style-#{$_value} {
-    list-style-type: $_value !important;
-  }
+    .list-style-#{$_value} {
+        list-style-type: $_value !important;
+    }
 }

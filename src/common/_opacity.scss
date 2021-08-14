@@ -1,7 +1,7 @@
 @for $_i from 0 through 10 {
-  $_step: $_i * 10;
+    $_step: $_i * 10;
 
-  .opacity-#{$_step} {
-    opacity: unquote('#{$_step}%');
-  }
+    .opacity-#{$_step} {
+        opacity: unquote('#{$_step}%');
+    }
 }

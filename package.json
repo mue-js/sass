@@ -1,13 +1,39 @@
 {
-    "name": "@muejs/sass",
-    "version": "1.0.0",
+    "name": "@mue-js/sass",
+    "version": "1.0.8",
     "description": "A not professional library of SASS classes to make styling easier.",
     "main": "src/base/index.scss",
+    "exports": {
+        ".": "./src/base/index.scss",
+        "./animations": "./src/common/_animations.scss",
+        "./backgrounds": "./src/common/_backgrounds.scss",
+        "./borders": "./src/common/_borders.scss",
+        "./cursors": "./src/common/_cursors.scss",
+        "./displays": "./src/common/_displays.scss",
+        "./flex": "./src/common/_flex.scss",
+        "./images": "./src/common/_images.scss",
+        "./lists": "./src/common/_lists.scss",
+        "./margin": "./src/common/_margin.scss",
+        "./opacity": "./src/common/_opacity.scss",
+        "./overflows": "./src/common/_overflows.scss",
+        "./padding": "./src/common/_padding.scss",
+        "./placement": "./src/common/_placement.scss",
+        "./scrollbar": "./src/common/_scrollbar.scss",
+        "./sizing": "./src/common/_sizing.scss",
+        "./mediaQueries": "./src/mixins/mediaQueries.scss",
+        "./trigonometry": "./src/mixins/trigonometry.scss"
+    },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Cobelt/muejs.git"
+        "url": "https://github.com/mue-js/sass.git"
     },
+    "keywords": [
+        "muejs",
+        "sass",
+        "css"
+    ],
     "publishConfig": {
+        "access": "public",
         "registry": "https://registry.yarnpkg.com"
     },
     "devDependencies": {

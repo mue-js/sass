@@ -31,7 +31,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name]/[name].min.js',
+        filename: '[name].js',
     },
 
     module: {
