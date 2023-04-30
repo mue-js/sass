@@ -128,9 +128,7 @@
     @include black;
 }
 
-html,
-button,
-textarea {
+* {
     font-family: var(--font-family, var(--default-text-font-family, karla));
 }
 

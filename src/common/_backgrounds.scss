@@ -46,6 +46,10 @@
 }
 
 // GREYS
+.bg-deep-black {
+    background-color: #000 !important;
+}
+
 .bg-black {
     background-color: var(--black-color) !important;
 }
@@ -64,6 +68,10 @@
 
 .bg-pale {
     background-color: var(--pale-color) !important;
+}
+
+.bg-white {
+    background-color: #fff !important;
 }
 
 // OTHERS

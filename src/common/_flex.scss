@@ -22,11 +22,11 @@
     flex-direction: column-reverse !important;
 }
 
-.flex-reverse {
+@include withMediaQueries(flex-row-reverse) {
     flex-direction: row-reverse !important;
 }
 
-.flex-row {
+@include withMediaQueries(flex-row) {
     flex-direction: row !important;
 }
 
